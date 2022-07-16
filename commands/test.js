@@ -7,6 +7,9 @@ const data = new SlashCommandBuilder()
 
 async function execute(client, interaction, subinteraction, config) {
     if (interaction.isButton()) {
+        if (interaction.user.id !== subinteraction.user.id) {
+            return;
+        }
         if (interaction.customId === "delete") {
             return await interaction.message.delete();
         }
@@ -15,7 +18,8 @@ async function execute(client, interaction, subinteraction, config) {
     row.addComponents(new MessageButton()
         .setCustomId("delete")
         .setLabel("Delete")
-        .setStyle(4) 
+        .setStyle(4)
+        .setEmoji("🗑️")
     );
     await interaction.reply({ content: 'Pong!', components: [row] });
 }
