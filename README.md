@@ -3,6 +3,7 @@
 ## Setup
 
 **Linux:**
+
 ```
 export DISCORD_TOKEN=<your bot token>
 export ANIMAL_CHANNEL_ID=<your animal channel id>
@@ -12,6 +13,7 @@ export PREFIX=<pick a prefix, ! is recommended>
 ```
 
 **Windows (PowerShell):**
+
 ```
 $env:DISCORD_TOKEN = "<your bot token>"
 $env:ANIMAL_CHANNEL_ID = "<your animal channel id>"
