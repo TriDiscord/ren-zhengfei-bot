@@ -17,14 +17,14 @@ async function execute(client, interaction, subinteraction, config) {
     );
     row.addComponents(
       new MessageButton()
-      .setCustomId("delete")
-      .setLabel("Delete")
-      .setStyle(4)
-      .setEmoji("🗑️")
+        .setCustomId("delete")
+        .setLabel("Delete")
+        .setStyle(4)
+        .setEmoji("🗑️")
     );
-    var response = await config.request("GET", "https://aws.random.cat/meow")
-    var response = await response.json()
-    var cat_url = response.file
+    var response = await config.request("GET", "https://aws.random.cat/meow");
+    var response = await response.json();
+    var cat_url = response.file;
     var embed = new MessageEmbed()
       .setColor(config.color)
       .setTitle("Here's a cat!")
@@ -35,7 +35,7 @@ async function execute(client, interaction, subinteraction, config) {
   }
   if (interaction.isButton()) {
     if (interaction.user.id !== subinteraction.user.id) {
-        return;
+      return;
     }
     if (interaction.customId === "delete") {
       return await interaction.message.delete();

@@ -52,10 +52,10 @@ client.on("interactionCreate", async (interaction) => {
   for (const file of commandFiles) {
     const file_name = file.split("/").at(-1);
     if (!interaction.isCommand()) {
-      var subinteraction = interaction.message.interaction
-      interaction.commandName = subinteraction.commandName
+      var subinteraction = interaction.message.interaction;
+      interaction.commandName = subinteraction.commandName;
     } else {
-      var subinteraction = interaction
+      var subinteraction = interaction;
     }
     if (interaction.commandName === file_name.split(".").at(0)) {
       const command = require(`./commands/${file}`);
