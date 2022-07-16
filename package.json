@@ -1,6 +1,6 @@
 {
   "name": "ren-zhengfei-bot",
-  "version": "1.1.6",
+  "version": "1.0.0",
   "description": "Custom bot for Huaweicord",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,8 @@
   "homepage": "https://github.com/TriDiscord/ren-zhengfei-bot#readme",
   "dependencies": {
     "discord.js": "latest",
-    "node-fetch": "latest"
+    "node-fetch": "latest",
+    "@discordjs/rest": "latest",
+    "discord-api-types": "latest"
   }
 }
