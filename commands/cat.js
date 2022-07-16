@@ -44,6 +44,13 @@ async function execute(client, interaction, subinteraction, config) {
       return await interaction.deferUpdate();
     }
   }
+  if (interaction.channel.id !== config.animal_images_channel) {
+    await interaction.reply({
+      content: `You can only use this command in <#${config.animal_images_channel}>`,
+      ephemeral: true,
+    });
+    return;
+  }
   await interaction.reply(await get_cat_interaction());
 }
 
