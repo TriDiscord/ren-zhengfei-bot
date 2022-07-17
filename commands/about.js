@@ -29,7 +29,7 @@ async function execute(client, interaction, subinteraction, config) {
     .addFields(
       {
         name: "Source",
-        value: "[GitHub](https://github.com/TriDiscord/ren-zhengfei-bot)",
+        value: "[GitHub](https://github.com/mfn003/ren-zhengfei-bot)",
         inline: true,
       },
       {
@@ -41,7 +41,7 @@ async function execute(client, interaction, subinteraction, config) {
         name: "Contributors",
         value:
           "[oliver193](https://github.com/oliver193)\n\
-[TriDiscord](https://github.com/TriDiscord)\n\
+[mfn003](https://github.com/mfn003)\n\
 [ValerieOSS](https://github.com/ValerieOSS)",
         inline: true,
       }

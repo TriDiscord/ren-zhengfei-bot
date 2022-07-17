@@ -1,6 +1,7 @@
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
 const fs = require("node:fs");
+const path = require("path");
 const fetch = import("node-fetch");
 const Discord = require("discord.js");
 const client = new Discord.Client({ intents: 32767 });
@@ -22,12 +23,25 @@ var config = {
 };
 
 const commands = [];
-const commandFiles = fs
-  .readdirSync("./commands")
-  .filter((file) => file.endsWith(".js"));
+function getFilesRecursive(dir) {
+  var results = [];
+  var err, files = fs.readdirSync(dir)
+  for (var i = 0; i < files.length; i++) {
+      if (fs.statSync(path.join(dir, files[i])).isDirectory()) {
+          results = results.concat(getFilesRecursive(path.join(dir, files[i])));
+      }
+      let file = files[i];
+      if (file.endsWith(".js")) {
+          results.push(path.join(dir, file));
+      }
+  }
+  return results;
+}
+
+const commandFiles = getFilesRecursive("./commands");
 
 for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
+  const command = require(path.join(process.cwd(), file));
   commands.push(command.data.toJSON());
 }
 
@@ -58,7 +72,7 @@ client.on("interactionCreate", async (interaction) => {
       var subinteraction = interaction;
     }
     if (interaction.commandName === file_name.split(".").at(0)) {
-      const command = require(`./commands/${file}`);
+      const command = require(path.join(process.cwd(), file));
       await command.execute(client, interaction, subinteraction, config);
     }
   }
