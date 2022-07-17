@@ -40,7 +40,7 @@ async function execute(client, interaction, subinteraction, config) {
       {
         name: "Contributors",
         value:
-          "[oliver193](https://github.com/oliver193)\n\
+          "[oliver194](https://github.com/oliver194)\n\
 [mfn003](https://github.com/mfn003)\n\
 [ValerieOSS](https://github.com/ValerieOSS)",
         inline: true,

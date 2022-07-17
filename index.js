@@ -64,7 +64,7 @@ const rest = new REST({ version: "9" }).setToken(process.env.DISCORD_TOKEN);
 
 client.on("interactionCreate", async (interaction) => {
   for (const file of commandFiles) {
-    const file_name = file.split("/").at(-1);
+    const file_name = path.normalize(file).split('\\').pop().split('/').pop();
     if (!interaction.isCommand()) {
       var subinteraction = interaction.message.interaction;
       interaction.commandName = subinteraction.commandName;
